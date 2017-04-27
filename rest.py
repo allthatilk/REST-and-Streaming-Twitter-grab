@@ -1,6 +1,7 @@
 import tweepy
 import json
 import os
+import codecs
 
 ckey="CONSUMER_KEY"
 csecret="CONSUMER_SECRET"
@@ -17,7 +18,7 @@ results = api.search(q="query", lang="en", count="130", result_type="recent")
 
 filename = 'YOUR_FILE'
 
-with open(filename, 'w') as file:
+with codecs.open(filename, 'w', 'utf-8') as file:
     for result in results:
         # If you want other things from the tweet object you can specify it here
         file.write(result.text + os.linesep)
